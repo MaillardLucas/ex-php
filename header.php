@@ -15,9 +15,9 @@
         <nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="index.php"></a></li>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="index.php">Actualité</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="index.php">A propos</a></li>
             </ul>
         </nav>
     </div>
