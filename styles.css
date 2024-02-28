@@ -78,12 +78,12 @@
   
   /* Styles spécifiques pour les actualités */
   .news-container {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr ;
   }
   
   .news-item {
-      width: 30%;
+      width: 52%;
       background-color: #fff;
       border-radius: 5px;
       margin: 10px;
