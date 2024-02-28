@@ -18,9 +18,9 @@ $result = mysqli_query($conn, $query);
         <div class="news-container">
         <?php while($row = mysqli_fetch_assoc($result)): ?>
             <div class="news-item">
-                <img><?php echo $row['image_url'];?></img>
                 <h2><?php echo $row['titre']; ?></h2>
-                <p><?php echo $row['contenu']; ?></p>
+                <img src="<?php echo $row['image_url'];?>">
+                <p><?php echo $row['tags']; ?></p>
                 <a href="details.php?id=<?php echo $row['id']; ?>">Lire la suite</a>
             </div>
         <?php endwhile; ?>
