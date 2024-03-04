@@ -10,7 +10,7 @@
       public $id_auteur;
       public $auteur;
 
-      public function_construct(string $titre, string $contenu, string $image_ulr, string $source, string $tags, string $date_publication, string $date_revision, string $id_auteur, string $auteur, )
+      public function _construct(string $titre, string $contenu, string $image_ulr, string $source, string $tags, string $date_publication, string $date_revision, string $id_auteur, string $auteur, )
       {
           $this->titre = $titre;
           $this->contenu = $contenu;
