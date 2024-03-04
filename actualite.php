@@ -1,5 +1,5 @@
 <?php
-  class Actualites {
+  class Actualite {
       public $titre;
       public $contenu;
       public $image_url;
