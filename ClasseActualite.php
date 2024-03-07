@@ -11,7 +11,7 @@ class Actualite
     public $id_auteur;
     public $auteur;
 
-    public function _construct(string $titre, string $contenu, string $image_ulr, string $source, string $tags, string $date_publication, string $date_revision, string $id_auteur, string $auteur, )
+    public function __construct(string $titre, string $contenu, string $image_url, string $source, string $tags, string $date_publication, string $date_revision, string $id_auteur, string $auteur)
     {
         $this->titre = $titre;
         $this->contenu = $contenu;
@@ -24,49 +24,31 @@ class Actualite
         $this->auteur = $auteur;
     }
 
-    public function getTitre(): string
+    public static function getAllFromDatabase(mysqli $conn): array
     {
-        return $this->titre;
-    }
-
-    public function gatContenu(): string
-    {
-        return $this->contenu;
-    }
-
-    public function getImage_url(): string
-    {
-        return $this->image_url;
-    }
-
-    public function getSource(): string
-    {
-        return $this->source;
-    }
-
-    public function getTags(): string
-    {
-        return $this->tags;
-    }
-
-    public function getDate_publication(): string
-    {
-        return $this->date_publication;
-    }
-
-    public function getDate_revision(): string
-    {
-        return $this->date_revision;
-    }
-
-    public function getId_auteur(): string
-    {
-        return $this->id_auteur;
-    }
-
-    public function getAuteur(): string
-    {
-        return $this->auteur;
+        $actualites = array();
+    
+        $query = "SELECT * FROM actualites ORDER BY date_publication DESC LIMIT 5";
+        $result = mysqli_query($conn, $query);
+    
+        while ($row = mysqli_fetch_assoc($result)) {
+            $source = $row['source'] ?? '';
+            $tags = $row['tags'] ?? ''; 
+            $actualite = new Actualite(
+                $row['titre'],
+                $row['contenu'],
+                $row['image_url'],
+                $source,
+                $tags,
+                $row['date_publication'],
+                $row['date_revision'],
+                $row['id_auteur'],
+                $row['auteur']
+            );
+            $actualites[] = $actualite;
+        }
+    
+        return $actualites;
     }
 }
 ?>

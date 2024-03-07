@@ -2,8 +2,7 @@
 include 'connexion.php';
 require_once('ClasseActualite.php');
 
-$query = "SELECT * FROM actualites ORDER BY date_publication DESC LIMIT 5";
-$result = mysqli_query($conn, $query);
+$actualites = Actualite::getAllFromDatabase($conn);
 ?>
 
 <!DOCTYPE html>
@@ -17,14 +16,14 @@ $result = mysqli_query($conn, $query);
     <div class="container">
         <h1>Actualités</h1>
         <div class="news-container">
-        <?php while($row = mysqli_fetch_assoc($result)): ?>
+        <?php foreach($actualites as $actualite): ?>
             <div class="news-item">
-                <h2><?php echo $row['titre']; ?></h2>
-                <img src="<?php echo $row['image_url'];?>">
-                <p><?php echo $row['tags']; ?></p>
-                <a href="details.php?id=<?php echo $row['id']; ?>">Lire la suite</a>
+                <h2><?php echo $actualite->titre; ?></h2>
+                <img src="<?php echo $actualite->image_url; ?>">
+                <p><?php echo $actualite->tags; ?></p>
+                <a href="details.php?id=<?php echo $actualite->id; ?>">Lire la suite</a>
             </div>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
         </div>
     </div>
     <?php include 'footer.php'; ?>
