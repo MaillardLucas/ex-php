@@ -1,6 +1,6 @@
 <?php
 include 'connexion.php';
-require_once('actualite.php');
+require_once('ClasseActualite.php');
 
 $query = "SELECT * FROM actualites ORDER BY date_publication DESC LIMIT 5";
 $result = mysqli_query($conn, $query);
