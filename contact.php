@@ -12,7 +12,6 @@
 </script>
 <form action="traitement_formulaire.php" method="post" onsubmit="showPopup(event)">
 
-
 </head>
 <body>
     <?php include 'header.php'; ?>
