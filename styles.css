@@ -159,6 +159,10 @@ footer div {
     grid-template-columns: auto;
   }
 
-  .grid-page-contact{
+  .grid-page-contact {
     background-color: #333;
+  }
+
+  .grid-page-contact label {
+    color: #fff;
   }

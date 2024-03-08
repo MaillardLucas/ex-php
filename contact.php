@@ -8,8 +8,8 @@
     <?php include 'header.php'; ?>
     <div class="container">
         <h1>Contactez-nous</h1>
-        <form class="grid-page-contact" action="traitement_formulaire.php" method="post">
-            <div style="text-align: center;"> <!-- Centrer le formulaire -->
+        <form  action="traitement_formulaire.php" method="post">
+            <div class="grid-page-contact"> 
                 <label for="prenom">Prénom :</label><br>
                 <input type="text" id="prenom" name="prenom"><br>
                 <label for="nom">Nom :</label><br>
