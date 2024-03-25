@@ -12,20 +12,22 @@ $actualites = Actualite::getAllFromDatabase($conn);
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'header.php'?>
     <div class="container">
         <h1>Actualités</h1>
         <div class="news-container">
-        <?php foreach($actualites as $actualite): ?>
+        <?php foreach($actualites as $actualite):?>
             <div class="news-item">
-                <h2><?php echo $actualite->titre; ?></h2>
-                <img src="<?php echo $actualite->image_url; ?>">
-                <p><?php echo $actualite->tags; ?></p>
-                <a href="details.php?id=<?php echo $actualite->id; ?>">Lire la suite</a>
+                <h2><?php echo $actualite->titre;?></h2>
+                <img src="<?php echo $actualite->image_url;?>">
+                <p><?php echo $actualite->tags;?></p>
+                <?php if(isset($actualite) &&!empty($actualite)):?>
+                    <a href="details.php?id=<?php echo $actualite->id;?>">Lire la suite</a>
+                <?php endif;?>
             </div>
-        <?php endforeach; ?>
+        <?php endforeach;?>
         </div>
     </div>
-    <?php include 'footer.php'; ?>
+    <?php include 'footer.php';?>
 </body>
 </html>

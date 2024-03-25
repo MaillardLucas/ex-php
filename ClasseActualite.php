@@ -10,8 +10,9 @@ class Actualite
     public $date_revision;
     public $id_auteur;
     public $auteur;
+    public $id;
 
-    public function __construct(string $titre, string $contenu, string $image_url, string $source, string $tags, string $date_publication, string $date_revision, string $id_auteur, string $auteur)
+    public function __construct(string $titre, string $contenu, string $image_url, string $source, string $tags, string $date_publication, string $date_revision, string $id_auteur, string $auteur, string $id)    
     {
         $this->titre = $titre;
         $this->contenu = $contenu;
@@ -22,6 +23,7 @@ class Actualite
         $this->date_revision = $date_revision;
         $this->id_auteur = $id_auteur;
         $this->auteur = $auteur;
+        $this->id = $id;
     }
 
     public static function getAllFromDatabase(mysqli $conn): array
@@ -43,7 +45,8 @@ class Actualite
                 $row['date_publication'],
                 $row['date_revision'],
                 $row['id_auteur'],
-                $row['auteur']
+                $row['auteur'],
+                $row['id']
             );
             $actualites[] = $actualite;
         }
